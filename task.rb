@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 # encoding: utf-8
 
+=======
+>>>>>>> a35a3c29a637038bd493ae1e6786af0af34f6a75
 require 'date'
 
 class Task < Post
   def initialize
     super
+<<<<<<< HEAD
 
     @due_date = Time.now
   end
@@ -15,12 +19,23 @@ class Task < Post
 
     puts 'К какому числу? Укажите дату в формате ДД.ММ.ГГГГ, ' \
       'например 12.05.2003'
+=======
+    @due_date = nil
+  end
+
+  def read_from_console
+    puts "Что нужно сделать?"
+    @text = STDIN.gets.chomp
+
+    puts "К какому числу? Укажите дату в формате ДД.ММ.ГГГГ, например 12.07.2007"
+>>>>>>> a35a3c29a637038bd493ae1e6786af0af34f6a75
     input = STDIN.gets.chomp
 
     @due_date = Date.parse(input)
   end
 
   def to_strings
+<<<<<<< HEAD
     deadline = "Крайний срок: #{@due_date.strftime('%Y.%m.%d')}"
     time_string = "Создано: #{@created_at.strftime('%Y.%m.%d, %H:%M:%S')} \n"
 
@@ -35,5 +50,12 @@ class Task < Post
     super
 
     @due_date = Date.parse(data_hash['due_date'])
+=======
+    time_string = "Создано: #{@created_at.strftime("%Y-%m-%d_%H-%M-%S")}"
+
+    deadline = "Крайний срок: #{@due_date}"
+
+    return [deadline, @text, time_string]
+>>>>>>> a35a3c29a637038bd493ae1e6786af0af34f6a75
   end
 end
